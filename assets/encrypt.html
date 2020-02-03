@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Encrypt</title>
+</head>
+
+<body>
+    <br><br><br><br><br><br><br><br>
+    <center>
+        <h1>Encrypt</h1>
+        <form action="/encrypt" method="POST">
+            <table style="text-align: left; border-spacing: 10px;">
+                <tr>
+                    <th>
+                        <label for="text">Text</label>
+                    </th>
+                    <th>
+                        <input id="text" name="text" type="text" placeholder="Text">
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="text-format">Text Format</label></th>
+                    <th><select name="text-format" id="text-format">
+                            <option value="hex">HEX</option>
+                            <option value="text">TEXT</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="pass">Password<label></th>
+                    <th><input id="pass" type="text" name="password" placeholder="password"></th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="salt">Salt</label>
+                    </th>
+                    <th>
+                        <input id="salt" type="text" name="salt" placeholder="salt">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="key-length">Key Length</label>
+                    </th>
+                    <th>
+                        <select name="key-length" id="key-length">
+                            <option value="128">128</option>
+                            <option value="192">192</option>
+                            <option value="256">256</option>
+                        </select>
+                    </th>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Encrypt">
+        </form>
+    </center>
+</body>
+
+</html>
