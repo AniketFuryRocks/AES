@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Decrypt</title>
+    <script>
+        function keyFromChange(ele) {
+            document.getElementById("pass_div").hidden = document.getElementById("salt_div").hidden = !(document.getElementById("key_div").hidden = ((ele.value == 'pass/salt')));
+        }
+    </script>
 </head>
 
 <body>
@@ -32,16 +37,23 @@
                     </th>
                 </tr>
                 <tr>
-                    <th><label for="pass">Password<label></th>
-                    <th><input id="pass" type="text" name="password" placeholder="password"></th>
+                    <th><label for="key-from">Key From</label></th>
+                    <th><select name="key-from" id="key-from" onchange="keyFromChange(this)">
+                            <option value="pass/salt">PASSWORD/SALT</option>
+                            <option value="key">KEY</option>
+                        </select></th>
                 </tr>
-                <tr>
-                    <th>
-                        <label for="salt">Salt</label>
-                    </th>
-                    <th>
-                        <input id="salt" type="text" name="salt" placeholder="salt">
-                    </th>
+                <tr id="pass_div">
+                    <th><label for="pass">Password<label></th>
+                    <th><input id="pass" type="text" name="password" placeholder="Password"></th>
+                </tr>
+                <tr id="salt_div">
+                    <th><label for="salt">Salt</label></th>
+                    <th><input id="salt" type="text" name="salt" placeholder="Salt"></th>
+                </tr>
+                <tr id="key_div">
+                    <th><label for="key">Key</label></th>
+                    <th><input name="key" type="text" name="key" placeholder="Key"></th>
                 </tr>
                 <tr>
                     <th>
@@ -60,6 +72,9 @@
             <input type="submit" value="Decrypt">
         </form>
     </center>
+    <script>
+        keyFromChange(document.getElementById('key-from'));
+    </script>
 </body>
 
 </html>

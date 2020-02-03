@@ -21,6 +21,6 @@ exports.decToText = aesjs.utils.utf8.fromBytes;
 //hash function = sha1
 exports.getKey = function getKey(password,salt,size) {
     if(!(size == 128 || size == 192 || size == 256))
-        throw "Invalid size(128 , 192 ,256)";
-    return pbkdf2.pbkdf2Sync(password, salt, 1, size / 8, 'sha1');
+        throw "Invalid size(128 , 192 ,256 bits)";
+    return pbkdf2.pbkdf2Sync(password, salt, 1000, size / 8, 'sha1');
 }
